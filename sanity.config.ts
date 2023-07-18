@@ -2,6 +2,7 @@ import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {schemaTypes} from './schemas'
 import {defaultDocumentNodeResolver, myStructure} from './src/deskStructure'
+import {visionTool} from '@sanity/vision'
 
 export default defineConfig({
   name: 'default',
@@ -15,6 +16,7 @@ export default defineConfig({
       structure: myStructure,
       defaultDocumentNode: defaultDocumentNodeResolver,
     }),
+    visionTool(),
   ],
 
   schema: {

@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import {defineField} from 'sanity'
 
 export default {
   name: 'navbar',
@@ -6,17 +6,41 @@ export default {
   type: 'document',
   fields: [
     defineField({
-      name: 'name',
+      name: 'title',
+      title: 'Title',
       type: 'string',
-      title: 'Name',
     }),
     defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
+      name: 'logo',
+      title: 'Logo Url',
+      type: 'string',
+    }),
+    defineField({
+      title: 'Socials',
+      name: 'socials',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              title: 'Name',
+              name: 'name',
+              type: 'string',
+            }),
+            defineField({
+              title: 'Icon',
+              name: 'icon',
+              type: 'string',
+            }),
+            defineField({
+              title: 'Href',
+              name: 'href',
+              type: 'string',
+            }),
+          ],
+        },
+      ],
     }),
     defineField({
       title: 'Names',
@@ -83,16 +107,6 @@ export default {
     defineField({
       name: 'email',
       title: 'Email',
-      type: 'string',
-    }),
-    defineField({
-      name: 'linkedin',
-      title: 'Linkedin',
-      type: 'string',
-    }),
-    defineField({
-      name: 'github',
-      title: 'Github',
       type: 'string',
     }),
   ],
