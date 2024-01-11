@@ -1,85 +1,86 @@
-import {defineField, defineType} from 'sanity'
-
-export default defineType({
+export const portfolio = {
   name: 'portfolio',
   title: 'Portfolio',
   type: 'document',
   fields: [
-    defineField({
-      name: 'name',
-      type: 'string',
-      title: 'Name',
-    }),
-    defineField({
+    {
       name: 'image',
       title: 'Image',
       type: 'image',
       options: {
         hotspot: true,
       },
-    }),
-    defineField({
-      title: 'Names',
-      name: 'names',
+    },
+    {
+      title: 'Name',
+      name: 'name',
+      type: 'string',
+    },
+    {
+      title: 'Headline',
+      name: 'headline',
       type: 'array',
-      of: [
+      of: [{type: 'block'}],
+    },
+    {
+      title: 'Current Position',
+      name: 'currentPosition',
+      type: 'string',
+    },
+    {
+      title: 'Last Education',
+      name: 'lastEducation',
+      type: 'string',
+    },
+    {
+      title: 'Location',
+      name: 'location',
+      type: 'object',
+      fields: [
         {
-          type: 'object',
-          fields: [
-            defineField({
-              title: 'Name',
-              name: 'name',
-              type: 'string',
-            }),
-            defineField({
-              title: 'Href',
-              name: 'href',
-              type: 'string',
-            }),
-            defineField({
-              title: 'HasSubmenu',
-              name: 'isSubMenu',
-              type: 'boolean',
-              initialValue: false,
-            }),
-            defineField({
-              title: 'Names',
-              name: 'names',
-              type: 'array',
-              hidden: ({parent}) => !parent?.isSubMenu,
-              of: [
-                {
-                  type: 'object',
-                  fields: [
-                    defineField({
-                      title: 'Name',
-                      name: 'name',
-                      type: 'string',
-                    }),
-                    defineField({
-                      title: 'Href',
-                      name: 'href',
-                      type: 'string',
-                    }),
-                    defineField({
-                      title: 'NewTab',
-                      name: 'newTab',
-                      type: 'boolean',
-                      initialValue: false,
-                    }),
-                  ],
-                },
-              ],
-            }),
-          ],
+          title: 'Country/Region',
+          name: 'country',
+          type: 'string',
+        },
+        {
+          title: 'City',
+          name: 'city',
+          type: 'string',
         },
       ],
-    }),
-    defineField({
-      name: 'contact',
-      title: 'Contact',
-      type: 'string',
-    }),
+    },
+    {
+      title: 'Title',
+      name: 'title',
+      type: 'array',
+      of: [{type: 'block'}],
+    },
+    {
+      title: 'Experience',
+      name: 'experience',
+      type: 'experience',
+    },
+    {
+      title: 'Education',
+      name: 'education',
+      type: 'education',
+    },
+    {
+      title: 'Navbar',
+      name: 'navbar',
+      type: 'navbar',
+    },
+    {
+      title: 'About',
+      name: 'about',
+      type: 'about',
+    },
+
+    {
+      title: 'Skills',
+      name: 'skills',
+      type: 'skills',
+    },
   ],
   preview: {
     select: {
@@ -87,4 +88,194 @@ export default defineType({
       media: 'image',
     },
   },
-})
+}
+
+export const education = {
+  name: 'education',
+  title: 'Education',
+  type: 'array',
+  of: [
+    {
+      type: 'object',
+      fields: [
+        {
+          title: 'Degree',
+          name: 'degree',
+          type: 'string',
+        },
+        {
+          title: 'Academy',
+          name: 'academy',
+          type: 'string',
+        },
+        {
+          title: 'Start',
+          name: 'starts',
+          type: 'string',
+        },
+        {
+          title: 'End',
+          name: 'ends',
+          type: 'string',
+        },
+        {
+          title: 'Major',
+          name: 'major',
+          type: 'array',
+          of: [{type: 'block'}],
+        },
+      ],
+    },
+  ],
+}
+
+export const skills = {
+  name: 'skills',
+  title: 'Skills',
+  type: 'array',
+  of: [
+    {
+      type: 'object',
+      fields: [
+        {
+          title: 'Level',
+          name: 'level',
+          type: 'string',
+        },
+        {
+          title: 'Skill',
+          name: 'skill',
+          type: 'array',
+          of: [{type: 'block'}],
+        },
+      ],
+    },
+  ],
+}
+
+export const projects = {
+  name: 'projects',
+  title: 'Projects',
+  type: 'array',
+  of: [
+    {
+      type: 'object',
+      fields: [
+        {
+          title: 'Project name',
+          name: 'projectName',
+          type: 'string',
+        },
+        {
+          title: 'Description',
+          name: 'description',
+          type: 'string',
+        },
+        {
+          title: 'Skills',
+          name: 'skills',
+          type: 'string',
+        },
+        {
+          title: 'Start',
+          name: 'start',
+          type: 'string',
+        },
+        {
+          title: 'End',
+          name: 'end',
+          type: 'string',
+        },
+        {
+          title: 'Link',
+          name: 'link',
+          type: 'string',
+        },
+        {
+          title: 'Image',
+          name: 'image',
+          type: 'image',
+        },
+      ],
+    },
+  ],
+}
+
+export const about = {
+  name: 'about',
+  type: 'document',
+  title: 'About',
+  fields: [
+    {
+      name: 'title',
+      type: 'string',
+      title: 'Title',
+    },
+    {
+      name: 'subtitle',
+      type: 'string',
+      title: 'Subtitle',
+    },
+    {
+      title: 'Details',
+      name: 'details',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              title: 'Title',
+              name: 'title',
+              type: 'string',
+            },
+            {
+              title: 'Value',
+              name: 'value',
+              type: 'string',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+}
+
+export const experience = {
+  name: 'experience',
+  title: 'Experience',
+  type: 'array',
+  of: [
+    {
+      type: 'object',
+      fields: [
+        {
+          title: 'Company',
+          name: 'company',
+          type: 'string',
+        },
+        {
+          title: 'Designation',
+          name: 'designation',
+          type: 'string',
+        },
+        {
+          title: 'Start',
+          name: 'starts',
+          type: 'string',
+        },
+        {
+          title: 'End',
+          name: 'ends',
+          type: 'string',
+        },
+        {
+          title: 'Roles',
+          name: 'roles',
+          type: 'array',
+          of: [{type: 'block'}],
+        },
+      ],
+    },
+  ],
+}

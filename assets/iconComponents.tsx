@@ -11,10 +11,10 @@ export const JsonPreview = ({document}) => {
 //   return `${JSON.stringify(document.displayed, null, 2)}` // <--- this is the important part
 // }
 
-export const portfolio = () => <span>👨‍💼</span>
-export const navbar = () => <span>☰</span>
+export const portfolioIcon = () => <span>👨‍💼</span>
+export const navbarIcon = () => <span>☰</span>
 
-export const mathInlineIcon = () => (
+export const mathInlineIconIcon = () => (
   <span>
     <span style={{fontWeight: 'bold'}}>∑</span>b
   </span>

@@ -6,11 +6,6 @@ export default {
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-    }),
-    defineField({
       name: 'logo',
       title: 'Logo Url',
       type: 'string',
@@ -29,9 +24,13 @@ export default {
               type: 'string',
             }),
             defineField({
-              title: 'Icon',
-              name: 'icon',
-              type: 'string',
+              title: 'Slug',
+              name: 'slug',
+              type: 'slug',
+              options: {
+                source: 'name',
+                maxLength: 96,
+              },
             }),
             defineField({
               title: 'Href',

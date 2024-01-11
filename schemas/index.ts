@@ -1,23 +1,5 @@
-import blockContent from './blockContent'
-import category from './category'
-import post from './post'
-import author from './author'
-import pet from './pet'
-import portfolio from './portfolio'
-import siteSettings from './siteSettings'
-import colors from './colors'
-import mainNavigation from './mainNavigation'
+import {about, education, experience, portfolio, projects, skills} from './portfolio'
+
 import navbar from './navbar'
 
-export const schemaTypes = [
-  portfolio,
-  pet,
-  post,
-  author,
-  category,
-  blockContent,
-  navbar,
-  siteSettings,
-  colors,
-  mainNavigation,
-]
+export const schemaTypes = [about, experience, portfolio, education, skills, projects, navbar]
