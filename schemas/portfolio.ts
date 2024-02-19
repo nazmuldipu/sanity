@@ -1,3 +1,19 @@
+import {SlugSourceFn, SlugifierFn} from 'sanity'
+
+const slugify = (source: string) => source.toLowerCase().replace(/\s+/g, `-`)
+
+const handleSlugify: SlugifierFn = (source: string, schemaType: any, context: any) => {
+  return `/` + source.trim().split(`/`).map(slugify).join(`/`)
+}
+
+const getExperienceSlugSource: SlugSourceFn = (doc, context): string => {
+  const {company, designation} = context.parent
+
+  return String(
+    company.replace(/[,() ]+/g, ' ').trim() + `/` + designation.replace(/[,() ]+/g, ' ').trim()
+  )
+}
+
 export const portfolio = {
   name: 'portfolio',
   title: 'Portfolio',
@@ -260,6 +276,15 @@ export const experience = {
           type: 'string',
         },
         {
+          title: 'Slug',
+          name: 'slug',
+          type: 'slug',
+          options: {
+            source: getExperienceSlugSource,
+            slugify: handleSlugify,
+          },
+        },
+        {
           title: 'Start',
           name: 'starts',
           type: 'string',
@@ -268,6 +293,11 @@ export const experience = {
           title: 'End',
           name: 'ends',
           type: 'string',
+        },
+        {
+          title: 'Technologies',
+          name: 'technologies',
+          type: 'technology',
         },
         {
           title: 'Roles',
