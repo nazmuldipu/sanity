@@ -12,10 +12,9 @@ export const skills = {
           type: 'string',
         },
         {
-          title: 'Skill',
-          name: 'skill',
-          type: 'array',
-          of: [{type: 'block'}],
+          title: 'Technologies',
+          name: 'technologies',
+          type: 'technology',
         },
       ],
     },
