@@ -23,6 +23,18 @@ export const portfolio = {
       of: [{type: 'block'}],
     },
     {
+      title: 'Tagline',
+      name: 'tagline',
+      type: 'string',
+      description: 'Short hero line (≤ ~90 chars).',
+    },
+    {
+      title: 'Highlight Phrase',
+      name: 'highlightPhrase',
+      type: 'string',
+      description: 'The exact substring of the headline/tagline to highlight.',
+    },
+    {
       title: 'Current Position',
       name: 'currentPosition',
       type: 'string',
@@ -80,6 +92,17 @@ export const portfolio = {
       title: 'Skills',
       name: 'skills',
       type: 'skills',
+    },
+    {
+      title: 'Projects',
+      name: 'projects',
+      type: 'projects',
+    },
+    {
+      title: 'Contact Headline',
+      name: 'contactHeadline',
+      type: 'string',
+      description: 'Contact section CTA (was hard-coded in the front-end page).',
     },
   ],
   preview: {
